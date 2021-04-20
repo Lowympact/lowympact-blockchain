@@ -16,7 +16,7 @@
         "chai-as-promised": "^7.1.1",
         "chai-bignumber": "^2.0.2",
         "nodemon": "^1.17.3",
-        "truffle": "5.0.2",
+        "truffle": "^5.1.65",
         "truffle-contract": "3.0.6"
     }
 }
