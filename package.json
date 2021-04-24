@@ -8,7 +8,6 @@
         "test": "test"
     },
     "scripts": {
-        "dev": "",
         "test": "echo \"Error: no test specified\" && sexit 1"
     },
     "author": "HexaOne",
@@ -17,10 +16,12 @@
         "url": "https://github.com/Lowympact/lowympact-blockchain/issues"
     },
     "homepage": "https://github.com/Lowympact/lowympact-blockchain#readme",
+    "dependencies": {
+        "truffle": "^5.1.65"
+    },
     "devDependencies": {
         "chai": "^4.1.2",
         "chai-as-promised": "^7.1.1",
-        "chai-bignumber": "^2.0.2",
-        "truffle": "^5.1.65"
+        "chai-bignumber": "^2.0.2"
     }
 }
