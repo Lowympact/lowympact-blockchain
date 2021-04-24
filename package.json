@@ -1,22 +1,26 @@
 {
-    "name": "eth-traceability",
+    "name": "lowympact-blockchain",
     "version": "1.0.0",
-    "description": "Blockchain Industrial Aliments' Traceability Powered By Ethereum",
+    "private": "true",
+    "description": "A HexaOne's project made at INSA Lyon - Blockchain part of a food traceability application on top of Ethereum's blockchain",
     "main": "truffle-config.js",
     "directories": {
         "test": "test"
     },
     "scripts": {
-        "dev": "lite-server to be modified",
+        "dev": "",
         "test": "echo \"Error: no test specified\" && sexit 1"
     },
-    "author": "Lowympact",
+    "author": "HexaOne",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Lowympact/lowympact-blockchain/issues"
+    },
+    "homepage": "https://github.com/Lowympact/lowympact-blockchain#readme",
     "devDependencies": {
         "chai": "^4.1.2",
         "chai-as-promised": "^7.1.1",
         "chai-bignumber": "^2.0.2",
-        "nodemon": "^1.17.3",
-        "truffle": "^5.1.65",
-        "truffle-contract": "3.0.6"
+        "truffle": "^5.1.65"
     }
 }
