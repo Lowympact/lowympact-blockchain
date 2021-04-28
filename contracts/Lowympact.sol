@@ -39,11 +39,12 @@ contract Actor {
         Transaction newTransaction = new Transaction(
                 _idTransaction,
                 _buyer,
+                this,
                 _transport,
                 _productsInput,
                 _productsOutput
             );
-        emit TransactionCreated(address(newTransaction));//
+        emit TransactionCreated(address(newTransaction));
     }
 }
 
@@ -73,11 +74,13 @@ contract Transaction {
     constructor(
         string memory _idTransaction,
         Actor _buyer,
+        Actor _seller,
         TransportType _transport,
         Product[] memory _productsInput,
         Product[] memory _productsOutput
     ) public {
         idTransaction = _idTransaction;
+        seller = _seller;
         buyer = _buyer;
         date = block.timestamp;
         transport = _transport;
