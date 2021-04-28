@@ -85,7 +85,7 @@ contract Transaction {
         date = block.timestamp;
         transport = _transport;
         for (uint256 index = 0; index < _productsInput.length; index++) {
-            productsInput.push(_productsOutput[index]);
+            productsInput.push(_productsInput[index]);
         }
         for (uint256 index = 0; index < _productsOutput.length; index++) {
             productsOutput.push(_productsOutput[index]);
@@ -104,5 +104,13 @@ contract Transaction {
         if (msg.sender == buyer.owner()) {
             isFinished = true;
         }
+    }
+
+    function getProductsInput() external view returns (Product[] memory) {
+        return productsInput;
+    }
+
+    function getProductsOutput() external view returns (Product[] memory) {
+        return productsOutput;
     }
 }
