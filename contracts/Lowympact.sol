@@ -53,11 +53,6 @@ contract Transaction {
         address addressTransaction;
     }
 
-    struct Products {
-        mapping(uint256 => Product) products;
-        uint256 size;
-    }
-
     string public idTransaction;
     Actor public buyer;
     Actor public seller;
