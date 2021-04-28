@@ -25,13 +25,15 @@ contract Actor {
         owner = msg.sender;
     }
 
+    event TransactionCreated(address _address);
+
     function createTransaction(
         Transaction.Product[] memory _productsInput,
         Transaction.Product[] memory _productsOutput,
         Actor _buyer,
         string memory _idTransaction,
         Transaction.TransportType _transport
-    ) public returns (address) {
+    ) public {
         require(msg.sender == owner, "Only the actor can create a transaction");
 
         Transaction newTransaction = new Transaction(
@@ -41,7 +43,7 @@ contract Actor {
                 _productsInput,
                 _productsOutput
             );
-            return address(newTransaction);
+        emit TransactionCreated(address(newTransaction));//
     }
 }
 
