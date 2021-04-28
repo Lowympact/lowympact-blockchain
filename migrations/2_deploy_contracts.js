@@ -1,5 +1,7 @@
-const HelloWorld = artifacts.require("HelloWorld");
+const Actor = artifacts.require("Actor");
+const Transaction = artifacts.require("Transaction");
 
 module.exports = function (deployer) {
-    deployer.deploy(HelloWorld);
+    deployer.deploy(Actor);
+    deployer.deploy(Transaction);
 };
