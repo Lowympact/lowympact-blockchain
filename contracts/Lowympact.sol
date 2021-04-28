@@ -31,17 +31,17 @@ contract Actor {
         Actor _buyer,
         string memory _idTransaction,
         Transaction.TransportType _transport
-    ) public returns (Transaction newTransaction) {
+    ) public returns (address) {
         require(msg.sender == owner, "Only the actor can create a transaction");
 
-        return
-            new Transaction(
+        Transaction newTransaction = new Transaction(
                 _idTransaction,
                 _buyer,
                 _transport,
                 _productsInput,
                 _productsOutput
             );
+            return address(newTransaction);
     }
 }
 
@@ -49,7 +49,7 @@ contract Transaction {
     enum TransportType {Avion, Train, Bateau, Camion, Charette}
 
     struct Product {
-        uint256 productsInputId;
+        string productId;
         address addressTransaction;
     }
 
