@@ -46,7 +46,7 @@ contract Actor {
 }
 
 contract Transaction {
-    enum TransportType {Avion, Train, Bateau, Camion, Charette}
+    enum TransportType {Plane, Train, Boat, Truck, charette}
 
     struct Product {
         uint256 productsInputId;
