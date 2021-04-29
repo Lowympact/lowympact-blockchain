@@ -46,6 +46,20 @@ contract Actor {
             );
         emit TransactionCreated(address(newTransaction));
     }
+
+    function getActorInformations() external view returns(
+        string memory _id,
+        string memory _name,
+        string memory _actorType,
+        string memory _latitude,
+        string memory _longitude
+    ) {
+        _id = id;
+        _name = name;
+        _actorType = actorType;
+        _latitude = latitude;
+        _longitude = longitude;
+    }
 }
 
 contract Transaction {
@@ -112,5 +126,27 @@ contract Transaction {
 
     function getProductsOutput() external view returns (Product[] memory) {
         return productsOutput;
+    }
+
+    function getTransactionInformations() external view returns (
+        string memory _id, 
+        address _buyerAddress, 
+        address _sellerAddress, 
+        Product[] memory _productsInput,
+        Product[] memory _productsOutput,
+        TransportType _transport,
+        uint256 _date,
+        bool _isFinished,
+        bool _isAccepted
+    ) {
+        _id = idTransaction;
+        _buyerAddress = address(buyer);
+        _sellerAddress = address(seller);
+        _productsInput = productsInput;
+        _productsOutput = productsOutput;
+        _transport = transport;
+        _date = date;
+        _isFinished = isFinished;
+        _isAccepted = isAccepted;
     }
 }
