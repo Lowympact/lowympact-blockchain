@@ -36,7 +36,8 @@ contract Actor {
     ) public {
         require(msg.sender == owner, "Only the actor can create a transaction");
 
-        Transaction newTransaction = new Transaction(
+        Transaction newTransaction =
+            new Transaction(
                 _idTransaction,
                 _buyer,
                 this,
@@ -47,13 +48,17 @@ contract Actor {
         emit TransactionCreated(address(newTransaction));
     }
 
-    function getActorInformations() external view returns(
-        string memory _id,
-        string memory _name,
-        string memory _actorType,
-        string memory _latitude,
-        string memory _longitude
-    ) {
+    function getActorInformations()
+        external
+        view
+        returns (
+            string memory _id,
+            string memory _name,
+            string memory _actorType,
+            string memory _latitude,
+            string memory _longitude
+        )
+    {
         _id = id;
         _name = name;
         _actorType = actorType;
@@ -63,7 +68,7 @@ contract Actor {
 }
 
 contract Transaction {
-    enum TransportType {Plane, Train, Boat, Truck, charette}
+    enum TransportType {Plane, Train, Boat, Truck, Charette}
 
     struct Product {
         string productId;
@@ -104,13 +109,13 @@ contract Transaction {
     }
 
     function acceptTransaction() external {
-        if (msg.sender == buyer.owner()) {
+        if (msg.sender == buyer.owner() && !isAccepted && !isFinished) {
             isAccepted = true;
         }
     }
 
     function finishTransaction() external {
-        if (msg.sender == buyer.owner()) {
+        if (msg.sender == buyer.owner() && isAccepted && !isFinished) {
             isFinished = true;
         }
     }
@@ -123,17 +128,21 @@ contract Transaction {
         return productsOutput;
     }
 
-    function getTransactionInformations() external view returns (
-        string memory _id, 
-        address _buyerAddress, 
-        address _sellerAddress, 
-        Product[] memory _productsInput,
-        Product[] memory _productsOutput,
-        TransportType _transport,
-        uint256 _date,
-        bool _isFinished,
-        bool _isAccepted
-    ) {
+    function getTransactionInformations()
+        external
+        view
+        returns (
+            string memory _id,
+            address _buyerAddress,
+            address _sellerAddress,
+            Product[] memory _productsInput,
+            Product[] memory _productsOutput,
+            TransportType _transport,
+            uint256 _date,
+            bool _isFinished,
+            bool _isAccepted
+        )
+    {
         _id = idTransaction;
         _buyerAddress = address(buyer);
         _sellerAddress = address(seller);
